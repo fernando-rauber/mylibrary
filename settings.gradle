@@ -16,3 +16,4 @@ rootProject.name = "MyLibrary"
 include ':app'
 include ':advertising'
 include ':billing'
+include ':logger'
