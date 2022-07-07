@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/billing" />
             <option value="$PROJECT_DIR$/logger" />
+            <option value="$PROJECT_DIR$/snackbar" />
           </set>
         </option>
       </GradleProjectSettings>
