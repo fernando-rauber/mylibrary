@@ -31,6 +31,5 @@ fun BoxScope.CustomSnackBar(
         snackBarHostState = scaffoldState,
         snackBarSealed = snackBarSealed,
         modifier = modifier
-
     )
 }

@@ -1,0 +1,8 @@
+ext{
+    minSdk = 25
+    targetSdk = 32
+    compileSdk = 32
+    versionCode = 4
+    versionName = "1.4"
+}
+
