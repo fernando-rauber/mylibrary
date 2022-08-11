@@ -1,6 +1,9 @@
-# mylibrary
+# Check the setup and how to use each library
 
-Get into any library to see how to install and use it.
+##
+
+
+# Advertising with AdMob
 
 ### Create AdMob Account
 https://admob.google.com/home/get-started/
