@@ -1,4 +1,4 @@
-# **Version 1.4**
+# **Version 1.4.4**
 
 
 # Setup
@@ -22,13 +22,15 @@ Components:
 - MyDialog(shape: Shape = MaterialTheme.shapes.medium, content: @Composable () -> Unit)
 - UpdateStatusBar(color: Color)
 - MyAnimatedVisibility(visible: Boolean, content: @Composable () -> Unit)
+- MyButton(...)
+- MyIconButton(...)
+- OnLifecycleEvent(onEvent: (owner: LifecycleOwner, event: Lifecycle.Event) -> Unit)
 
 Extentions:
 - Date.formatToTime(format: String)
 - Date.formatToDate(format: String)
 
-- Modifier.noRippleClickable(onClick: () -> Unit)
-- Modifier.clickableSingle(enabled: Boolean = true, onClickLabel: String? = null, role: Role? = null, onClick: () -> Unit)
+- Modifier.clickableSingle(enabled: Boolean = true, ripple: Bollean, onClickLabel: String? = null, role: Role? = null, onClick: () -> Unit)
 
 Gereral:
 - TAG
