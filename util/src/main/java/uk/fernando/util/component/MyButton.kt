@@ -2,6 +2,7 @@ package uk.fernando.util.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -25,6 +26,7 @@ fun MyButton(
     text: String,
     enabled: Boolean = true,
     color: Color = MaterialTheme.colorScheme.primary,
+    textColor: Color = Color.White,
     fontSize: TextUnit = 17.sp,
     isLoading: Boolean = false,
     shape: Shape = MaterialTheme.shapes.small,
@@ -57,7 +59,7 @@ fun MyButton(
                 modifier = textModifier,
                 text = text,
                 textAlign = TextAlign.Center,
-                color = if (enabled) Color.White else Color.Black,
+                color = if (enabled) textColor else Color.Black,
                 fontWeight = FontWeight.Bold,
                 fontSize = fontSize
             )
