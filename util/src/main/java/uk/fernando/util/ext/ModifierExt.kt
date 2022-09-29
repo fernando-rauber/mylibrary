@@ -11,17 +11,9 @@ import androidx.compose.ui.semantics.Role
 import uk.fernando.util.event.MultipleEventsCutter
 import uk.fernando.util.event.get
 
-fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
-    clickable(
-        indication = null,
-        interactionSource = remember { MutableInteractionSource() }
-    ) {
-        clickableSingle(onClick = onClick)
-    }
-}
-
 fun Modifier.clickableSingle(
     enabled: Boolean = true,
+    ripple: Boolean = true,
     onClickLabel: String? = null,
     role: Role? = null,
     onClick: () -> Unit
@@ -40,7 +32,7 @@ fun Modifier.clickableSingle(
         onClickLabel = onClickLabel,
         onClick = { multipleEventsCutter.processEvent(onClick) },
         role = role,
-        indication = LocalIndication.current,
+        indication = if (ripple) LocalIndication.current else null,
         interactionSource = remember { MutableInteractionSource() }
     )
 }
