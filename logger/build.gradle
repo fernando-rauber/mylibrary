@@ -21,12 +21,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'uk.fernando.logger'
 
 }
 
 dependencies {
 
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.11'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.13'
 }
 
 afterEvaluate {
