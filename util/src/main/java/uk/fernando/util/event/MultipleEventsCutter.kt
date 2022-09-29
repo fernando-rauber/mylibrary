@@ -1,13 +1,12 @@
 package uk.fernando.util.event
 
-internal interface MultipleEventsCutter {
+interface MultipleEventsCutter {
     fun processEvent(event: () -> Unit)
 
     companion object
 }
 
-internal fun MultipleEventsCutter.Companion.get(): MultipleEventsCutter =
-    MultipleEventsCutterImpl()
+fun MultipleEventsCutter.Companion.get(): MultipleEventsCutter = MultipleEventsCutterImpl()
 
 private class MultipleEventsCutterImpl : MultipleEventsCutter {
     private val now: Long
