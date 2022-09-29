@@ -16,7 +16,7 @@ fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
         indication = null,
         interactionSource = remember { MutableInteractionSource() }
     ) {
-        onClick()
+        clickableSingle(onClick = onClick)
     }
 }
 
@@ -38,7 +38,7 @@ fun Modifier.clickableSingle(
     Modifier.clickable(
         enabled = enabled,
         onClickLabel = onClickLabel,
-        onClick = { multipleEventsCutter.processEvent { onClick() } },
+        onClick = { multipleEventsCutter.processEvent(onClick) },
         role = role,
         indication = LocalIndication.current,
         interactionSource = remember { MutableInteractionSource() }
