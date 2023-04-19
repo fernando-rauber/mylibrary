@@ -34,7 +34,7 @@ android {
 dependencies {
 
     // Google Play Billing Library
-    implementation "com.android.billingclient:billing-ktx:5.0.0"
+    implementation "com.android.billingclient:billing-ktx:5.2.0"
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
 }
