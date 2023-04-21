@@ -1,7 +1,6 @@
 package uk.fernando.uikit.component
 
-import android.content.Context
-import android.media.AudioManager
+import android.media.MediaPlayer
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
@@ -17,8 +16,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import uk.fernando.uikit.R
 import uk.fernando.uikit.event.MultipleEventsCutter
 import uk.fernando.uikit.event.get
+import uk.fernando.uikit.ext.playAudio
 
 val grey = Color(0xFF9F9F9F)
 
@@ -31,7 +32,7 @@ fun MyButton(
     textColor: Color = Color.White,
     fontSize: TextUnit = 17.sp,
     isLoading: Boolean = false,
-    clickEffect: Boolean = true,
+    soundEffect: Int? = R.raw.click,
     shape: Shape = MaterialTheme.shapes.small,
     textModifier: Modifier = Modifier,
     borderStroke: BorderStroke? = null,
@@ -40,7 +41,7 @@ fun MyButton(
     onClick: () -> Unit,
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
-    val context = LocalContext.current
+    val soundClick = if (soundEffect == null) null else MediaPlayer.create(LocalContext.current, soundEffect)
 
     Button(
         border = borderStroke,
@@ -52,9 +53,7 @@ fun MyButton(
         contentPadding = contentPadding,
         onClick = {
             if (!isLoading) {
-                if (clickEffect)
-                    (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
-                        .playSoundEffect(AudioManager.FX_KEY_CLICK)
+                soundClick?.playAudio()
 
                 multipleEventsCutter.processEvent(onClick)
             }

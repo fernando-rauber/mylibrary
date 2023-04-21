@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'uk.fernando.util'
+    namespace 'uk.fernando.uikit'
     compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
