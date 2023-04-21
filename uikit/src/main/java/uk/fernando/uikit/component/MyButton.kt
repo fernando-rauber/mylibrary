@@ -1,5 +1,7 @@
-package uk.fernando.util.component
+package uk.fernando.uikit.component
 
+import android.content.Context
+import android.media.AudioManager
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
@@ -9,13 +11,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import uk.fernando.util.event.MultipleEventsCutter
-import uk.fernando.util.event.get
+import uk.fernando.uikit.event.MultipleEventsCutter
+import uk.fernando.uikit.event.get
 
 val grey = Color(0xFF9F9F9F)
 
@@ -28,6 +31,7 @@ fun MyButton(
     textColor: Color = Color.White,
     fontSize: TextUnit = 17.sp,
     isLoading: Boolean = false,
+    clickEffect: Boolean = true,
     shape: Shape = MaterialTheme.shapes.small,
     textModifier: Modifier = Modifier,
     borderStroke: BorderStroke? = null,
@@ -36,6 +40,7 @@ fun MyButton(
     onClick: () -> Unit,
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
+    val context = LocalContext.current
 
     Button(
         border = borderStroke,
@@ -45,7 +50,15 @@ fun MyButton(
         elevation = elevation,
         shape = shape,
         contentPadding = contentPadding,
-        onClick = { if (!isLoading) multipleEventsCutter.processEvent(onClick) }
+        onClick = {
+            if (!isLoading) {
+                if (clickEffect)
+                    (context.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
+                        .playSoundEffect(AudioManager.FX_KEY_CLICK)
+
+                multipleEventsCutter.processEvent(onClick)
+            }
+        }
     ) {
         if (isLoading)
             CircularProgressIndicator(

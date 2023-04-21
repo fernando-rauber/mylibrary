@@ -1,4 +1,4 @@
-package uk.fernando.util.event
+package uk.fernando.uikit.event
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect

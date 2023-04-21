@@ -17,7 +17,7 @@
             <option value="$PROJECT_DIR$/billing" />
             <option value="$PROJECT_DIR$/logger" />
             <option value="$PROJECT_DIR$/snackbar" />
-            <option value="$PROJECT_DIR$/util" />
+            <option value="$PROJECT_DIR$/uikit" />
           </set>
         </option>
       </GradleProjectSettings>

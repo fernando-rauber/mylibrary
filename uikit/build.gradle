@@ -57,7 +57,7 @@ afterEvaluate {
                 from components.release
 
                 groupId = 'com.github.fernando-rauber'
-                artifactId = 'util'
+                artifactId = 'uikit'
                 version = rootProject.ext.versionName
             }
         }

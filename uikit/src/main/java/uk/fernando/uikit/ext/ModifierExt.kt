@@ -1,4 +1,4 @@
-package uk.fernando.util.ext
+package uk.fernando.uikit.ext
 
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.semantics.Role
-import uk.fernando.util.event.MultipleEventsCutter
-import uk.fernando.util.event.get
+import uk.fernando.uikit.event.MultipleEventsCutter
+import uk.fernando.uikit.event.get
 
 fun Modifier.clickableSingle(
     enabled: Boolean = true,

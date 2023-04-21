@@ -1,4 +1,4 @@
-package uk.fernando.util.component
+package uk.fernando.uikit.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

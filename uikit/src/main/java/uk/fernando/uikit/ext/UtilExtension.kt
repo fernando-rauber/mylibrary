@@ -1,4 +1,4 @@
-package uk.fernando.util.ext
+package uk.fernando.uikit.ext
 
 import android.Manifest
 import android.content.Context

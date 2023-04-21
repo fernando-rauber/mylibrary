@@ -3,7 +3,7 @@ ext{
     targetSdk = 33
     compileSdk = 33
     versionCode = 5
-    versionName = "1.5"
+    versionName = "1.5.1"
     composeCompilerVersion = "1.4.4"
 }
 

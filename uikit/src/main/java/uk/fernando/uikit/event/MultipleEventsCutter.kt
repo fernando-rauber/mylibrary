@@ -1,4 +1,4 @@
-package uk.fernando.util.event
+package uk.fernando.uikit.event
 
 interface MultipleEventsCutter {
     fun processEvent(event: () -> Unit)

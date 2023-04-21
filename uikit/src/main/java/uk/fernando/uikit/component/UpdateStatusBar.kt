@@ -1,4 +1,4 @@
-package uk.fernando.util.component
+package uk.fernando.uikit.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
