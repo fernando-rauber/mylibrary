@@ -13,10 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun MyTextField(
@@ -48,10 +46,7 @@ fun MyTextField(
         cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
         readOnly = readOnly,
         enabled = enable,
-        textStyle = TextStyle.Default.copy(
-            color = MaterialTheme.colorScheme.onSurface,
-            fontSize = 18.sp
-        ),
+        textStyle = MaterialTheme.typography.bodyMedium,
         decorationBox = { innerTextField ->
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (leadingIcon != null) leadingIcon()
