@@ -20,12 +20,13 @@ import uk.fernando.uikit.ext.playAudio
 fun MyIconButton(
     @DrawableRes icon: Int,
     modifier: Modifier = Modifier,
-    soundEffect: Int? = R.raw.click,
+    soundEffectEnabled: Boolean = false,
+    soundEffect: Int = R.raw.click,
     tint: Color = LocalContentColor.current,
     onClick: () -> Unit
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
-    val soundClick = if (soundEffect == null) null else MediaPlayer.create(LocalContext.current, soundEffect)
+    val soundClick = if (!soundEffectEnabled) null else MediaPlayer.create(LocalContext.current, soundEffect)
 
     IconButton(
         modifier = modifier,

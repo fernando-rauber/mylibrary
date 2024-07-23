@@ -33,12 +33,13 @@ fun MyImageButton(
     enabled: Boolean = true,
     textColor: Color = Color.White,
     fontSize: TextUnit = 27.sp,
-    soundEffect: Int? = R.raw.click,
+    soundEffectEnabled: Boolean = false,
+    soundEffect: Int = R.raw.click,
     @DrawableRes trailingIcon: Int? = null,
     onClick: () -> Unit,
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
-    val soundClick = if (soundEffect == null) null else MediaPlayer.create(LocalContext.current, soundEffect)
+    val soundClick = if (!soundEffectEnabled) null else MediaPlayer.create(LocalContext.current, soundEffect)
 
     Box(modifier = modifier
         .height(IntrinsicSize.Min)

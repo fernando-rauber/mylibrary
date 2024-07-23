@@ -32,7 +32,8 @@ fun MyButton(
     textColor: Color = Color.White,
     fontSize: TextUnit = 17.sp,
     isLoading: Boolean = false,
-    soundEffect: Int? = R.raw.click,
+    soundEffectEnabled: Boolean = false,
+    soundEffect: Int = R.raw.click,
     shape: Shape = MaterialTheme.shapes.small,
     textModifier: Modifier = Modifier,
     borderStroke: BorderStroke? = null,
@@ -41,7 +42,7 @@ fun MyButton(
     onClick: () -> Unit,
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
-    val soundClick = if (soundEffect == null) null else MediaPlayer.create(LocalContext.current, soundEffect)
+    val soundClick = if (!soundEffectEnabled) null else MediaPlayer.create(LocalContext.current, soundEffect)
 
     Button(
         border = borderStroke,

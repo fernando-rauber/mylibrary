@@ -1,5 +1,6 @@
 package uk.fernando.uikit.ext
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.clickable
@@ -14,11 +15,13 @@ import uk.fernando.uikit.R
 import uk.fernando.uikit.event.MultipleEventsCutter
 import uk.fernando.uikit.event.get
 
+@SuppressLint("ModifierFactoryUnreferencedReceiver")
 fun Modifier.clickableSingle(
     enabled: Boolean = true,
     ripple: Boolean = true,
     onClickLabel: String? = null,
-    soundEffect: Int? = R.raw.click,
+    soundEffectEnabled: Boolean = false,
+    soundEffect: Int = R.raw.click,
     role: Role? = null,
     onClick: () -> Unit
 ) = composed(
@@ -31,7 +34,7 @@ fun Modifier.clickableSingle(
     }
 ) {
     val multipleEventsCutter = remember { MultipleEventsCutter.get() }
-    val soundClick = if (soundEffect == null) null else MediaPlayer.create(LocalContext.current, soundEffect)
+    val soundClick = if (!soundEffectEnabled) null else MediaPlayer.create(LocalContext.current, soundEffect)
 
     Modifier.clickable(
         enabled = enabled,
